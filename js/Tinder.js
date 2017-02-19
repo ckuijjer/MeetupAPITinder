@@ -6,28 +6,19 @@ import SwipeCards from 'react-native-swipe-cards';
 let Card = React.createClass({
   render() {
     return (
-      <View style={[styles.card, {backgroundColor: this.props.backgroundColor}]}>
-        <Text>{this.props.text}</Text>
+      <View style={[styles.card, {backgroundColor: '#f99'}]}>
+        <Image
+          style={{width: 200, height: 200, backgroundColor: '#99f'}}
+          source={{ uri: this.props.imageUrl }}
+        />
+        <Text>{this.props.name}</Text>
       </View>
     )
   }
 })
 
-const Cards = [
-  {text: 'Tomato', backgroundColor: 'red'},
-  {text: 'Aubergine', backgroundColor: 'purple'},
-  {text: 'Courgette', backgroundColor: 'green'},
-  {text: 'Blueberry', backgroundColor: 'blue'},
-  {text: 'Umm...', backgroundColor: 'cyan'},
-  {text: 'orange', backgroundColor: 'orange'},
-]
 
 export default React.createClass({
-  getInitialState() {
-    return {
-      cards: Cards
-    }
-  },
   handleYup (card) {
     console.log(`Yup for ${card.text}`)
   },
@@ -35,9 +26,10 @@ export default React.createClass({
     console.log(`Nope for ${card.text}`)
   },
   render() {
+    console.log(this.props.members);
     return (
       <SwipeCards
-        cards={this.state.cards}
+        cards={this.props.members}
 
         renderCard={(cardData) => <Card {...cardData} />}
         renderNoMoreCards={() => <NoMoreCards />}
@@ -48,6 +40,10 @@ export default React.createClass({
     )
   }
 })
+
+const NoMoreCards = () => (
+  <View style={[styles.card, {backgroundColor: '#f99'}]} />
+);
 
 const styles = StyleSheet.create({
   card: {

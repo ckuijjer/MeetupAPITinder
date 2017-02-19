@@ -11,25 +11,14 @@ import {
   Text,
   View
 } from 'react-native';
-import Tinder from './js/Tinder';
+import App from './js/App';
 
 export default class MeetupAPITinder extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Tinder />
-      </View>
+      <App />
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    // justifyContent: 'center',
-    // alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-});
 
 AppRegistry.registerComponent('MeetupAPITinder', () => MeetupAPITinder);
