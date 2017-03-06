@@ -3,6 +3,7 @@ import {
   Text,
   View,
 } from 'react-native';
+import {Scene, Router} from 'react-native-router-flux';
 
 import _ from 'lodash';
 
@@ -10,6 +11,17 @@ import List from './List';
 import Tinder from './Tinder';
 import Loading from './Loading';
 
+const getMemberImageUrl = (member) => {
+  if (member.photo && member.photo.highres_link) {
+    return member.photo.highres_link;
+  }
+
+  if (member.photo && member.photo.photo_link) {
+    return member.photo.photo_link;
+  }
+
+  return 'http://combonetwork.com/img/empty_profile.png';  
+}
 
 class App extends React.Component {
   constructor(props) {
@@ -27,8 +39,8 @@ class App extends React.Component {
       .then((json) => {
         const members = json.map(item => {
           return {
-            name: _.get(item, 'member.name', 'no name'),
-            imageUrl: _.get(item, 'member.photo.highres_link', 'http://combonetwork.com/img/empty_profile.png'),
+            name: item.member.name,
+            imageUrl: getMemberImageUrl(item.member),
             response: item.response,
           };
         });
@@ -38,6 +50,8 @@ class App extends React.Component {
   }
 
   render() {  
+
+
     if (this.state.members.length) {
       return <List members={this.state.members} />
       // return <Tinder members={this.state.members} />
