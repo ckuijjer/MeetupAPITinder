@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   Image,
+  ScrollView,
   StyleSheet,
   Text,
   View,
@@ -31,7 +32,7 @@ const styles = StyleSheet.create({
 })
 
 const List = ({ members }) => (
-  <View style={styles.container}>
+  <ScrollView style={styles.container}>
     { members.map(({ name, imageUrl }) => {
       return (
         <View style={styles.item}>
@@ -44,7 +45,7 @@ const List = ({ members }) => (
         </View>
       );
     })}
-  </View>
+  </ScrollView>
 
 );
 
