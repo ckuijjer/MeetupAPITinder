@@ -1,14 +1,19 @@
 import React from 'react';
 import {
   StyleSheet,
-  Text,
   View,
-  Image,
-  Dimensions
 } from 'react-native';
 
 import SwipeCards from 'react-native-swipe-cards';
 import Card from './Card';
+
+const styles = StyleSheet.create({
+  container: {
+    marginBottom: 48,
+    marginTop: 64,
+    flex: 1,
+  }
+})
 
 class Attendance extends React.Component {
   handleYup(card) {
@@ -21,15 +26,17 @@ class Attendance extends React.Component {
 
   render() {
     return (
-      <SwipeCards
-        cards={this.props.members}
+      <View style={styles.container}>
+        <SwipeCards
+          cards={this.props.members}
 
-        renderCard={(cardData) => <Card {...cardData} />}
-        renderNoMoreCards={() => <NoMoreCards />}
+          renderCard={(cardData) => <Card {...cardData} />}
+          renderNoMoreCards={() => <NoMoreCards />}
 
-        handleYup={this.handleYup}
-        handleNope={this.handleNope}
-      />
+          handleYup={this.handleYup}
+          handleNope={this.handleNope}
+        />
+      </View>
     )
   }
 }
@@ -37,5 +44,5 @@ class Attendance extends React.Component {
 export default Attendance;
 
 const NoMoreCards = () => (
-  <View style={[styles.card, {backgroundColor: '#f99'}]} />
+  <View style={[styles.card, { backgroundColor: '#f99' }]} />
 );
