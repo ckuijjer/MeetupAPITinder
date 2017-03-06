@@ -11,11 +11,11 @@ import SwipeCards from 'react-native-swipe-cards';
 import Card from './Card';
 
 class Attendance extends React.Component {
-  handleYup (card) {
+  handleYup(card) {
     console.log(`Is attending for ${card.name}`)
   }
 
-  handleNope (card) {
+  handleNope(card) {
     console.log(`Not attending for ${card.name}`)
   }
 
