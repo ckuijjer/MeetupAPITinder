@@ -4,6 +4,7 @@ import {
   ScrollView,
   StyleSheet,
   Text,
+  TouchableHighlight,
   View,
 } from 'react-native'
 
@@ -19,6 +20,7 @@ const styles = StyleSheet.create({
     padding: 12,
     borderBottomWidth: 1,
     borderBottomColor: '#eee',
+    backgroundColor: '#fff',        
   },
   image: {
     width: 40,
@@ -31,21 +33,31 @@ const styles = StyleSheet.create({
   }
 })
 
-const ListItem = ({ name, imageUrl, response }) => (
-  <View style={styles.item}>
-    <Image
-      style={styles.image}
-      source={{ uri: imageUrl }}
-      resizeMode="cover"
-    />
-    <Text style={styles.text}>{name}</Text>
-    <ResponseIcon response={response} />
-  </View>
+const ListItem = ({ name, imageUrl, response, onPress }) => (
+  <TouchableHighlight onPress={onPress}>
+    <View style={styles.item}>
+      <Image
+        style={styles.image}
+        source={{ uri: imageUrl }}
+        resizeMode="cover"
+      />
+      <Text style={styles.text}>{name}</Text>
+      <ResponseIcon response={response} />
+    </View>
+  </TouchableHighlight>
 );
 
 const List = ({ members }) => (
   <ScrollView style={styles.container}>
-    { members.map((props) => <ListItem {...props} />) }
+    {
+      members.map((member) => {
+        const onPress = () => {
+          console.log('member', member);
+        }
+        
+        return <ListItem {...member} onPress={onPress} />
+      })
+    }
   </ScrollView>
 );
 
