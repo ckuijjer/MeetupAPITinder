@@ -55,7 +55,6 @@ const List = ({ members }) => (
       members.map((member) => {
         const onPress = () => {
           Actions.card(member);
-          console.log('member', member);
         }
         
         return <ListItem {...member} onPress={onPress} />
