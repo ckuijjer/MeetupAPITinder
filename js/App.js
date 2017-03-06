@@ -13,6 +13,7 @@ import List from './List';
 import Tinder from './Tinder';
 import Loading from './Loading';
 
+
 const getMemberImageUrl = (member) => {
   if (member.photo && member.photo.highres_link) {
     return member.photo.highres_link;
@@ -32,12 +33,12 @@ class App extends React.Component {
     console.disableYellowBox = true;
 
     this.state = {
-      loading: true,
       members: [],
     };
 
-    fetch('https://api.meetup.com/WebDevelopment-Nederland/events/237701686/rsvps?photo-host=public&sig_id=148936292&sig=791565ae64fe83088cdcd2bc5d464b7a715c7f47')
-      .then(response => response.json())
+    // fetch('https://api.meetup.com/WebDevelopment-Nederland/events/237701686/rsvps?photo-host=public&sig_id=148936292&sig=791565ae64fe83088cdcd2bc5d464b7a715c7f47')
+    // .then(response => response.json())
+    new Promise.resolve(require('./data/meetup-api.json'))
       .then((json) => {
         const members = json.map(item => {
           return {
