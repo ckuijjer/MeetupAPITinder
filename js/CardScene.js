@@ -11,8 +11,8 @@ const styles = StyleSheet.create({
     marginTop: 64,
     marginBottom: 48,
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    padding: 20,
+    justifyContent: 'center',    
   }
 })
 
