@@ -5,6 +5,7 @@ import {
 
 import _ from 'lodash';
 
+import List from './List';
 import Tinder from './Tinder';
 
 class App extends React.Component {
@@ -32,7 +33,8 @@ class App extends React.Component {
 
   render() {  
     if (this.state.members.length) {
-      return <Tinder members={this.state.members} />
+      return <List members={this.state.members} />
+      // return <Tinder members={this.state.members} />
     } else {
       return <View />;
     }
