@@ -10,13 +10,15 @@ import {
 import SwipeCards from 'react-native-swipe-cards';
 import Card from './Card';
 
-export default React.createClass({
+class Attendance extends React.Component {
   handleYup (card) {
-    console.log(`Yup for ${card.text}`)
-  },
+    console.log(`Is attending for ${card.name}`)
+  }
+
   handleNope (card) {
-    console.log(`Nope for ${card.text}`)
-  },
+    console.log(`Not attending for ${card.name}`)
+  }
+
   render() {
     return (
       <SwipeCards
@@ -30,7 +32,9 @@ export default React.createClass({
       />
     )
   }
-})
+}
+
+export default Attendance;
 
 const NoMoreCards = () => (
   <View style={[styles.card, {backgroundColor: '#f99'}]} />
