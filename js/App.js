@@ -15,7 +15,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
-    console.disableYellowBox = true;
+    // console.disableYellowBox = true;
 
     this.state = {
       loading: true,
