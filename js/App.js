@@ -51,11 +51,12 @@ class App extends React.Component {
   }
 
   render() {  
-
-
     if (this.state.members.length) {
-      return <List members={this.state.members} />
-      // return <Tinder members={this.state.members} />
+      return (
+        <Router>
+          <Scene key={List} component={List} members={this.state.members} />
+        </Router>
+      );
     } else {
       return <Loading />;
     }
