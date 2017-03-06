@@ -11,6 +11,7 @@ import {
   Text,
   View
 } from 'react-native';
+import App from './js/App';
 
 export default class MeetupAPITinder extends Component {
   render() {
