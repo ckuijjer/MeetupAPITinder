@@ -8,11 +8,13 @@ import {
   View,
 } from 'react-native'
 
+import { Actions } from 'react-native-router-flux';
+
 import ResponseIcon from './ResponseIcon';
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 20,
+    marginTop: 64,
   },
   item: {
     flexDirection: 'row',
@@ -52,6 +54,7 @@ const List = ({ members }) => (
     {
       members.map((member) => {
         const onPress = () => {
+          Actions.card(member);
           console.log('member', member);
         }
         

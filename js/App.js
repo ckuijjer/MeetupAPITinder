@@ -8,6 +8,7 @@ import {
   Router
 } from 'react-native-router-flux';
 
+import CardScene from './CardScene';
 import List from './List';
 import Tinder from './Tinder';
 import Loading from './Loading';
@@ -28,7 +29,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
-    // console.disableYellowBox = true;
+    console.disableYellowBox = true;
 
     this.state = {
       loading: true,
@@ -54,7 +55,17 @@ class App extends React.Component {
     if (this.state.members.length) {
       return (
         <Router>
-          <Scene key={List} component={List} members={this.state.members} />
+          <Scene
+            key="list"
+            component={List}
+            title="List"
+            members={this.state.members}
+          />
+          <Scene 
+            key="card"
+            component={CardScene} 
+            title="Card"
+          />
         </Router>
       );
     } else {
