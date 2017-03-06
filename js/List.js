@@ -31,23 +31,22 @@ const styles = StyleSheet.create({
   }
 })
 
+const ListItem = ({ name, imageUrl, response }) => (
+  <View style={styles.item}>
+    <Image
+      style={styles.image}
+      source={{ uri: imageUrl }}
+      resizeMode="cover"
+    />
+    <Text style={styles.text}>{name}</Text>
+    <ResponseIcon response={response} />
+  </View>
+);
+
 const List = ({ members }) => (
   <ScrollView style={styles.container}>
-    { members.map(({ name, imageUrl, response }) => {
-      return (
-        <View style={styles.item}>
-          <Image
-            style={styles.image}
-            source={{ uri: imageUrl }}
-            resizeMode="cover"
-          />
-          <Text style={styles.text}>{name}</Text>
-          <ResponseIcon response={response} />
-        </View>
-      );
-    })}
+    { members.map((props) => <ListItem {...props} />) }
   </ScrollView>
-
 );
 
 export default List;
