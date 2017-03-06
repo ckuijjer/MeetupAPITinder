@@ -14,7 +14,7 @@ import {
 
 import CardScene from './CardScene';
 import List from './List';
-import Tinder from './Tinder';
+import Attendance from './Attendance';
 import Loading from './Loading';
 import TabIcon from './TabIcon';
 
@@ -94,7 +94,7 @@ class App extends React.Component {
             >
               <Scene
                 key="attendance"
-                component={Tinder}
+                component={Attendance}
                 title="Attendance"
                 members={this.state.members}
               />
