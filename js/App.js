@@ -1,12 +1,15 @@
 import React from 'react';
 import {
-  View
+  Text,
+  View,
 } from 'react-native';
 
 import _ from 'lodash';
 
 import List from './List';
 import Tinder from './Tinder';
+import Loading from './Loading';
+
 
 class App extends React.Component {
   constructor(props) {
@@ -37,7 +40,7 @@ class App extends React.Component {
       return <List members={this.state.members} />
       // return <Tinder members={this.state.members} />
     } else {
-      return <View />;
+      return <Loading />;
     }
   }
 }

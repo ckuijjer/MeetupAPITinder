@@ -1,7 +1,6 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-
 const ResponseIcon = ({ response }) => {
   let iconName = 'check';
   if (response === 'no') iconName = 'times';
