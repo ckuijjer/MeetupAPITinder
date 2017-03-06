@@ -7,6 +7,8 @@ import {
   View,
 } from 'react-native'
 
+import ResponseIcon from './ResponseIcon';
+
 const styles = StyleSheet.create({
   container: {
     marginTop: 20,
@@ -14,16 +16,14 @@ const styles = StyleSheet.create({
   item: {
     flexDirection: 'row',
     alignItems: 'center',    
-    paddingLeft: 16,
-    paddingRight: 16,
-    paddingTop: 8,
-    paddingBottom: 8,
+    padding: 12,
     borderBottomWidth: 1,
     borderBottomColor: '#eee',
   },
   image: {
     width: 40,
     height: 40,
+    borderRadius: 4,
   },
   text: {
     marginLeft: 8,
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
 
 const List = ({ members }) => (
   <ScrollView style={styles.container}>
-    { members.map(({ name, imageUrl }) => {
+    { members.map(({ name, imageUrl, response }) => {
       return (
         <View style={styles.item}>
           <Image
@@ -42,6 +42,7 @@ const List = ({ members }) => (
             resizeMode="cover"
           />
           <Text style={styles.text}>{name}</Text>
+          <ResponseIcon response={response} />
         </View>
       );
     })}

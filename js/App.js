@@ -24,6 +24,7 @@ class App extends React.Component {
           return {
             name: _.get(item, 'member.name', 'no name'),
             imageUrl: _.get(item, 'member.photo.highres_link', 'http://combonetwork.com/img/empty_profile.png'),
+            response: item.response,
           };
         });
 
