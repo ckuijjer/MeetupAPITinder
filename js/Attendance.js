@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
     marginBottom: 48,
     marginTop: 64,
     flex: 1,
+    backgroundColor: '#fbfbfb'
   }
 })
 
