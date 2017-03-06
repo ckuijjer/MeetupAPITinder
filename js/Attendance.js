@@ -33,6 +33,9 @@ class Attendance extends React.Component {
           renderCard={(cardData) => <Card {...cardData} />}
           renderNoMoreCards={() => <NoMoreCards />}
 
+          yupText="Attending 🎉"
+          nopeText="Not attending 😖"
+
           handleYup={this.handleYup}
           handleNope={this.handleNope}
         />
