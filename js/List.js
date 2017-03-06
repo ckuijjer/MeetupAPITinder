@@ -1,8 +1,9 @@
 import React from 'react';
 import {
+  Image,
   StyleSheet,
-  View,
   Text,
+  View,
 } from 'react-native'
 
 const styles = StyleSheet.create({
@@ -10,9 +11,22 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   item: {
-    padding: 16,
+    flexDirection: 'row',
+    alignItems: 'center',    
+    paddingLeft: 16,
+    paddingRight: 16,
+    paddingTop: 8,
+    paddingBottom: 8,
     borderBottomWidth: 1,
     borderBottomColor: '#eee',
+  },
+  image: {
+    width: 40,
+    height: 40,
+  },
+  text: {
+    marginLeft: 8,
+    flex: 1,
   }
 })
 
@@ -21,7 +35,12 @@ const List = ({ members }) => (
     { members.map(({ name, imageUrl }) => {
       return (
         <View style={styles.item}>
-          <Text>{name}</Text>
+          <Image
+            style={styles.image}
+            source={{ uri: imageUrl }}
+            resizeMode="cover"
+          />
+          <Text style={styles.text}>{name}</Text>
         </View>
       );
     })}
