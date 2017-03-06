@@ -15,6 +15,7 @@ import ResponseIcon from './ResponseIcon';
 const styles = StyleSheet.create({
   container: {
     marginTop: 64,
+    marginBottom: 48,
   },
   item: {
     flexDirection: 'row',

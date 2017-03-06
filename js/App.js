@@ -1,18 +1,22 @@
 import React from 'react';
+
 import {
+  StyleSheet,
   Text,
   View,
 } from 'react-native';
+
 import {
   Scene,
-  Router
+  TabBar,
+  Router,
 } from 'react-native-router-flux';
 
 import CardScene from './CardScene';
 import List from './List';
 import Tinder from './Tinder';
 import Loading from './Loading';
-
+import TabIcon from './TabIcon';
 
 const getMemberImageUrl = (member) => {
   if (member.photo && member.photo.highres_link) {
@@ -23,8 +27,16 @@ const getMemberImageUrl = (member) => {
     return member.photo.photo_link;
   }
 
-  return 'http://combonetwork.com/img/empty_profile.png';  
+  return 'http://combonetwork.com/img/empty_profile.png';
 }
+
+const styles = StyleSheet.create({
+  tabBar: {
+    backgroundColor: '#eee',
+    borderTopWidth: 0.5,
+    borderTopColor: '#828287',
+  }
+})
 
 class App extends React.Component {
   constructor(props) {
@@ -47,26 +59,47 @@ class App extends React.Component {
             response: item.response,
           };
         });
-
         this.setState({ members });
       });
   }
 
-  render() {  
+  render() {
     if (this.state.members.length) {
       return (
         <Router>
-          <Scene
-            key="list"
-            component={List}
-            title="List"
-            members={this.state.members}
-          />
-          <Scene 
-            key="card"
-            component={CardScene} 
-            title="Card"
-          />
+          <Scene key="tabbar" tabs hideNavBar style={styles.tabBar}>
+            <Scene
+              key="tab_list"
+              icon={TabIcon}
+              iconName="list"
+              title="List"
+            >
+              <Scene
+                key="list"
+                component={List}
+                title="List"
+                members={this.state.members}
+              />
+              <Scene
+                key="card"
+                component={CardScene}
+                title="Card"
+              />
+            </Scene>
+            <Scene
+              key="tab_attendance"
+              icon={TabIcon}
+              iconName="calendar-check-o"
+              title="Attendance"
+            >
+              <Scene
+                key="attendance"
+                component={Tinder}
+                title="Attendance"
+                members={this.state.members}
+              />
+            </Scene>
+          </Scene>
         </Router>
       );
     } else {
