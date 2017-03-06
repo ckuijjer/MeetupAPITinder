@@ -58,7 +58,7 @@ const List = ({ members }) => (
           Actions.card(member);
         }
         
-        return <ListItem {...member} onPress={onPress} />
+        return <ListItem {...member} onPress={onPress} key={member.name}/>
       })
     }
   </ScrollView>
