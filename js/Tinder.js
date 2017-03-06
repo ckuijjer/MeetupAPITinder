@@ -37,7 +37,6 @@ const styles = StyleSheet.create({
     color: '#333',
     textAlign: 'center',
   }
-
 });
 
 const Card = ({ name, imageUrl }) => {
