@@ -3,9 +3,10 @@ import {
   Text,
   View,
 } from 'react-native';
-import {Scene, Router} from 'react-native-router-flux';
-
-import _ from 'lodash';
+import {
+  Scene,
+  Router
+} from 'react-native-router-flux';
 
 import List from './List';
 import Tinder from './Tinder';
